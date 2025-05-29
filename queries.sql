@@ -6,11 +6,13 @@ HAVING make like 'Mercedes-Benz' and model like 'E250'
 ORDER BY 3;
 
 
+
 -- 2. What are the most in-demand cars in specific regions?
 SELECT make, model, city, state, COUNT(model)
 FROM listings 
 GROUP BY 1, 2, 3, 4
 ORDER BY 5 DESC;
+
 
 
 -- 3. Is there a preferred price range that buyers are targeting?
@@ -31,12 +33,14 @@ GROUP BY 1
 ORDER BY 2 DESC
 
 
+
 -- 4. What regions or cities have the highest and lowest average car prices for a specific model?
 SELECT make, city , previous_ownership, COUNT(*) no_of_vehicles, AVG(price) av_price
 FROM listings
 GROUP BY 1, 2, 3
 HAVING Make in ('Toyota') and previous_ownership like 'Foreign Used'
 ORDER BY 1, 1 DESC;
+
 
 
 -- 5. What are the most and least listed car brands and models?
@@ -49,3 +53,11 @@ SELECT make, model, COUNT(*)
 FROM listings
 GROUP BY 1, 2
 ORDER BY 3 DESC
+
+
+
+-- 6. Which color variants are most common and do they influence car pricing?#
+SELECT color, COUNT(*), AVG(price)
+FROM listings
+GROUP BY 1
+ORDER BY 2 DESC

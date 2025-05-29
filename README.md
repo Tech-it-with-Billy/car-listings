@@ -1,24 +1,18 @@
-Here’s a **ready-made, professional README template** for your Jiji Kenya car data scraping and analysis project — perfect for GitHub or portfolio presentation:
+# 🚗 Kenya Car Listings Data Analysis Project
 
----
+## 📌 Project Overview
 
-# 🚗 Kenya Used Car Market Analysis – Jiji.co.ke Web Scraping Project
+This project involves scraping and analyzing car listings from [Jiji.co.ke](https://jiji.co.ke/cars), one of Kenya's most popular online marketplaces. Using Selenium, we collected detailed car data, stored it in a PostgreSQL database, and used SQL and Python for data analysis and visualization. The goal is to gain actionable insights for car buyers and sellers and understand trends in the used and new car markets in Kenya.
 
-## 📌 Overview
+## 🎯 Objectives
 
-This project focuses on analyzing the used car market in Kenya using data scraped from [Jiji.co.ke](https://jiji.co.ke/cars), one of the country’s largest online car marketplaces. The goal is to provide data-driven insights to help buyers, sellers, and industry stakeholders make informed decisions.
+* Scrape detailed car listings from Jiji.co.ke
+* Store the scraped data in a structured PostgreSQL database
+* Analyze key car market trends using SQL
+* Visualize insights using Python (Pandas, Matplotlib, Seaborn)
+* Provide actionable insights for car traders and buyers
 
-We use **Selenium** to scrape real-time listings and extract relevant details such as price, make, model, year, mileage, condition, location, and seller type. The data is stored in a **PostgreSQL database**, processed with **Pandas**, and visualized using **Matplotlib**, **Seaborn**, and **Plotly**.
-
----
-
-## 🎯 Problem Statement
-
-> **What factors most influence the pricing and availability of used cars in Kenya, and how can these insights help buyers and sellers make better decisions?**
-
----
-
-## ❓ Key Research Questions
+## 🔍 Key Research Questions
 
 * What is the resale value of a specific car brands and models in Kenya?
 
@@ -28,97 +22,90 @@ We use **Selenium** to scrape real-time listings and extract relevant details su
 
 * What regions or cities have the highest and lowest average car prices for a specific model?
 
-* How does transmission type (automatic vs manual) affect vehicle pricing and availability?#
+* Which color variants are most common and do they influence car pricing?
 
-* Which color variants are most common and do they influence car pricing?#
+## 🗂️ Data Collection
 
-* Are cars listed by enterprise sellers priced differently than those by individual sellers?#
+We used Selenium to extract data for each listing by following links from the car listings homepage. Each listing provided:
 
-* What are the most and least listed car brands and models on Jiji.co.ke?#
+* Make, Model, Year
+* Price
+* Mileage
+* Transmission
+* Color
+* Condition (Foreign/Local/Brand New)
+* Location
 
-* Are there seasonal or temporal patterns in car listings and pricing trends on the platform?
+## 🛢️ Database Schema
 
----
+The scraped data was stored in a PostgreSQL table called `listings`:
 
-## 🛠️ Tools & Technologies
+| Column Name  | Data Type |
+| ------------ | --------- |
+| make         | TEXT      |
+| model        | TEXT      |
+| year         | INTEGER   |
+| price        | INTEGER   |
+| mileage      | INTEGER   |
+| transmission | TEXT      |
+| color        | TEXT      |
+| condition    | TEXT      |
+| location     | TEXT      |
+| listing\_url | TEXT      |
 
-| Tool                          | Use                              |
-| ----------------------------- | -------------------------------- |
-| Python                        | Programming language             |
-| Selenium                      | Web scraping from dynamic pages  |
-| PostgreSQL          | Data storage                     |
-| Pandas                        | Data cleaning and transformation |
-| Matplotlib / Seaborn / Plotly | Data visualization               |
-| SQL                           | Querying the structured data     |
-| Jupyter Notebook              | Interactive data analysis        |
+## 📊 Findings and Insights
 
----
+Based on SQL analysis of the collected data:
 
-## 📑 Data Fields Collected
+* **Toyota** is the most frequently listed brand, followed by **Nissan**.
+* **Land Cruiser Prado** is the most commonly listed model.
+* Listings with **lower mileage** generally have **higher prices**, regardless of brand.
+* **Mombasa** has the highest number of listings, followed by **Nairobi**.
+* **Foreign-used** cars dominate the market, followed by **locally used** and **brand new**.
+* The most popular **car colors** are white, black, gray, and silver.
+* Most cars are priced between **KSh 500,000 and KSh 5,000,000**, indicating a concentrated mid-range market.
 
-From each car listing:
+## 🧠 Business Implications
 
-* `Make` (Brand)
-* `Model`
-* `Year`
-* `Mileage`
-* `Transmission`
-* `Color`
-* `Condition` (Foreign used or local)
-* `Price`
-* `Location`
-* `Seller Type` (Enterprise or individual)
-* `Listing URL`
+### For Sellers:
 
----
+* Focus on high-demand brands like Toyota and Nissan for quicker sales.
+* Sourcing foreign-used vehicles, especially Land Cruiser Prados, can yield higher margins.
+* List vehicles in Mombasa for greater visibility or target Nairobi for premium pricing.
+* Highlight low mileage in listings to justify higher pricing.
+* Stick to neutral colors (white, black, gray) to meet buyer preferences.
+* Price vehicles within the KSh 500k–5M range to appeal to the majority of buyers.
 
-## 🔄 Project Workflow
+### For Buyers:
 
-1. **Scrape Data**
+* Be prepared to pay a premium for low-mileage and foreign-used cars.
+* Compare prices between Mombasa and Nairobi for better deals.
+* Consider common brands for easier maintenance and resale.
+* Buying a high end unit will guarantee you a higher resale value especially German cars.
+* Japanese cars are affordable to maintain because of readily available maintenance parts.
 
-   * Navigate Jiji car listings using Selenium
-   * Extract data from each vehicle listing page
-   * Store raw data in a structured format
+## 📊 Visualizations
 
-2. **Store in Database**
+### Top Car Brands by Listing Frequency
+![Top Car Brands](charts/img1.png)
 
-   * Define schema for cars table
-   * Insert data into PostgreSQL/SQLite
 
-3. **Clean & Explore**
+## 🧰 Tools Used
 
-   * Clean inconsistent formats (e.g., prices, mileage)
-   * Convert data types and handle missing values
-   * Perform exploratory data analysis (EDA)
+* **Selenium** for scraping
+* **PostgreSQL** for storage
+* **SQL** for analysis
+* **Pandas, Matplotlib, Seaborn** for visualization
 
-4. **Visualize Insights**
+## 🚀 How to Run This Project
 
-   * Bar plots, heatmaps, boxplots, and interactive charts
-   * Insights on pricing trends, common models, and seller behavior
-
----
-
-## 📊 Example Visuals (to be included)
-
-* Average car prices by brand and model
-* Price vs. mileage scatter plot
-* Vehicle distribution by region
-* Box plots comparing foreign-used vs local-used cars
-
----
+1. Clone the repository
+2. Run the scraper script (`scraper.ipynb`) with Selenium
+3. Merge, clean and load the data into the PostgreSQL `Vehicle Database` using `data_processing.ipynb`
+4. Use `analysis.sql` for SQL queries
+5. Run `visualizations.ipynb` for charts and graphs
 
 ## 📌 Future Enhancements
 
 * Add machine learning to predict car prices based on features.
-* Automate scraping across pages and categories.
-* Build a dashboard using Streamlit or Dash.
-
----
-
-## 📬 Contact
-
-**Your Name** – \[[YourEmail@example.com](mailto:YourEmail@example.com)]
-**LinkedIn** – [linkedin.com/in/yourname](https://linkedin.com/in/yourname)
-**GitHub** – [github.com/yourusername](https://github.com/yourusername)
-
----
+* Build a dashboard using Tableau.

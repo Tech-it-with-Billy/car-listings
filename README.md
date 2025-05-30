@@ -7,6 +7,7 @@ This project involves scraping and analyzing car listings from [Jiji.co.ke](http
 ## 🎯 Objectives
 
 * Scrape detailed car listings from Jiji.co.ke
+* Process and clean the data
 * Store the scraped data in a structured PostgreSQL database
 * Analyze key car market trends using SQL
 * Visualize insights using Python (Pandas, Matplotlib, Seaborn)
@@ -82,12 +83,18 @@ Based on SQL analysis of the collected data:
 * Compare prices between Mombasa and Nairobi for better deals.
 * Consider common brands for easier maintenance and resale.
 * Buying a high end unit will guarantee you a higher resale value especially German cars.
-* Japanese cars are affordable to maintain because of readily available maintenance parts.
+* Japanese cars are affordable and easy to maintain because of readily available maintenance parts.
 
 ## 📊 Visualizations
 
 ### Top Car Brands by Listing Frequency
-![Top Car Brands](charts/img1.png)
+![Top Selling Brands](charts/img1.png)
+
+![Top Selling Models](charts/img2.png)
+
+![Relationship between Price and Mileage](charts/img3.png)
+
+![Regional Distribution](charts/img2.png)
 
 
 ## 🧰 Tools Used

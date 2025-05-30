@@ -94,7 +94,7 @@ Based on SQL analysis of the collected data:
 
 ![Relationship between Price and Mileage](charts/img3.png)
 
-![Regional Distribution](charts/img2.png)
+![Regional Distribution](charts/img4.png)
 
 
 ## 🧰 Tools Used
